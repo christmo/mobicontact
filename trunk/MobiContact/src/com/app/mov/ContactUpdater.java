@@ -12,7 +12,9 @@ public class ContactUpdater extends DroidGap {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.loadUrl("file:///android_asset/www/index.html");
+        super.setIntegerProperty("splashscreen", R.drawable.bender);
+        super.setBooleanProperty("keepRunning", false);
+        super.loadUrl("file:///android_asset/www/index.html",10000);
     }
 
     @Override
