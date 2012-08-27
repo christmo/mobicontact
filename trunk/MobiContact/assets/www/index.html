@@ -89,80 +89,94 @@
                 </div>
             </div>
 
-                <div data-role="content">
-                    <div style=" text-align:center">
-                        <img style="width: 288px; height: 100px" src="themes/images/movistar_horizontal.jpg" />
-                    </div>
-                    <ul data-role="listview" data-inset="true" id='centros_div' ></ul>
+            <div data-role="content">
+                <div style=" text-align:center">
+                    <img style="width: 288px; height: 100px" src="themes/images/movistar_horizontal.jpg" />
                 </div>
-            </div> <!--page -->
+                <ul data-role="listview" data-inset="true" id='centros_div' ></ul>
+            </div>
+        </div> <!--page -->
 
 
-            <!-- PAGINA DE locales -->
-            <div data-role="page" id="locales">
-                <div style=" text-align:center" data-role="header" >
-                    <div data-role="header">
-                        <a href="#main" data-rel="back">Atras</a>
-                        <h1>Locales</h1>
-                    </div>
+        <!-- PAGINA DE locales -->
+        <div data-role="page" id="locales">
+            <div style=" text-align:center" data-role="header" >
+                <div data-role="header">
+                    <a href="#main" data-rel="back">Atras</a>
+                    <h1>Locales</h1>
                 </div>
+            </div>
 
-                    <div data-role="content"   >
+            <div data-role="content"   >
+                 <div style=" text-align:center">
+                    <img style="width: 288px; height: 100px" src="themes/images/movistar_horizontal.jpg" />
+                </div>
+                <div class="locales" data-role="listview"  data-inset="true"></div>
+            </div>
+        </div> <!--page -->
+
+
+        
+         <!-- PAGINA DE mapa -->
+        <div data-role="page" id="mapa">
+            <div style=" text-align:center" data-role="header" >
+                <div data-role="header">
+                    <a href="#main" data-rel="back">Atras</a>
+                    <h1>Locales</h1>
+                </div>
+            </div>
+            <div id="map" style="height: 410px;"></div>
+            <div class="nombre_local" data-role="footer" style="height: 50px;" >
+            </div>
+        </div> <!--page -->
+
+        <script type="text/javascript" charset="utf-8" src="js/rss.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/cordova-2.0.0.js"></script>  
+        <script type="text/javascript" charset="utf-8" src="js/contactos.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/centros.js"></script>
+        <script src="http://www.openlayers.org/api/OpenLayers.js">  </script>
+
+        <!--        <div style=" text-align:center">
+                    <img style="width: 288px; height: 100px" src="themes/images/movistar_horizontal.jpg" />
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
                         <div style=" text-align:center">
-                            <img style="width: 288px; height: 100px" src="themes/images/movistar_horizontal.jpg" />
+                            <a data-role="button" data-inline="true" href="centros.html">
+                                <img src="themes/images/sim_icon2.png" style="width: 60px; height: px"/>
+                                <br>Centros
+                            </a>
                         </div>
-                        <div class="locales" data-role="listview" data-inset="true"></div>
                     </div>
-                </div> <!--page -->
-
-
-
-                <script type="text/javascript" charset="utf-8" src="js/rss.js"></script>
-                <script type="text/javascript" charset="utf-8" src="js/cordova-2.0.0.js"></script>  
-                <script type="text/javascript" charset="utf-8" src="js/contactos.js"></script>
-                <script type="text/javascript" charset="utf-8" src="js/centros.js"></script>
-
-                <!--        <div style=" text-align:center">
-                            <img style="width: 288px; height: 100px" src="themes/images/movistar_horizontal.jpg" />
+                    <div class="ui-block-b">
+                        <div style=" text-align:center">
+                            <a data-role="button" data-inline="true" href="perfil.html">
+                                <img src="themes/images/icon-pc-movistar.png" style="width: 60px; height: px"/>
+                                <br>Peril
+                            </a>
                         </div>
-                        <div class="ui-grid-a">
-                            <div class="ui-block-a">
-                                <div style=" text-align:center">
-                                    <a data-role="button" data-inline="true" href="centros.html">
-                                        <img src="themes/images/sim_icon2.png" style="width: 60px; height: px"/>
-                                        <br>Centros
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="ui-block-b">
-                                <div style=" text-align:center">
-                                    <a data-role="button" data-inline="true" href="perfil.html">
-                                        <img src="themes/images/icon-pc-movistar.png" style="width: 60px; height: px"/>
-                                        <br>Peril
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="ui-block-a">
-                            </div>
-                            <div class="ui-block-b">
-                            </div>
-                            <div class="ui-block-a">
-                                <div style=" text-align:center">
-                                    <a data-role="button" data-inline="true" href="contactos.html">
-                                        <img src="themes/images/tools_icon2.png" style="width: 60px; height: px"/>
-                                        <br>Numeros
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="ui-block-b">
-                                <div style=" text-align:center">
-                                    <a data-role="button" data-inline="true" href="noticias.html">
-                                        <img src="themes/images/notes_icon2.png" style="width: 60px; height: px"/>
-                                        <br>Ofertas
-                                    </a>
-                                </div>
-                            </div>
-                
-                        </div>-->
-                </body>
-                </html>
+                    </div>
+                    <div class="ui-block-a">
+                    </div>
+                    <div class="ui-block-b">
+                    </div>
+                    <div class="ui-block-a">
+                        <div style=" text-align:center">
+                            <a data-role="button" data-inline="true" href="contactos.html">
+                                <img src="themes/images/tools_icon2.png" style="width: 60px; height: px"/>
+                                <br>Numeros
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div style=" text-align:center">
+                            <a data-role="button" data-inline="true" href="noticias.html">
+                                <img src="themes/images/notes_icon2.png" style="width: 60px; height: px"/>
+                                <br>Ofertas
+                            </a>
+                        </div>
+                    </div>
+        
+                </div>-->
+    </body>
+</html>
