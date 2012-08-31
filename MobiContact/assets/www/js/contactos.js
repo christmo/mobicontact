@@ -19,7 +19,7 @@ function actualizarContactos() {
                 
     options.filter="";
     options.multiple=true; 
-    filter = ["id", "displayName", "name", "nickname", "phoneNumbers", "emails", "addresses",
+    filter = ["id","displayName", "name", "phoneNumbers", "emails", "addresses",
     "ims", "organizations", "birthday", "note", "photos", "categories", "urls"];
     navigator.contacts.find(filter,onContactsSuccess, options);
                 
@@ -37,10 +37,10 @@ function actualizarContactos() {
                             contactosTodos[i].phoneNumbers[j] = new ContactField(contacts[i].phoneNumbers[j].type, nuevoNumero, true);                                        
                             lista += "<li class=\"ui-li ui-li-static ui-body-c ui-corner-bottom\">"+
                             "<img style=\"width: 60px; height: px\" src=\"themes/images/sim_icon2.png\" />"+
-                            "<h3 class=\"ui-li-heading\">"+contacts[i].displayName+"</h3>"+
+                            "<h3 class=\"ui-li-heading\">"+contacts[i].name.givenName+" "+contacts[i].name.familyName+"</h3>"+
                             "<p class=\"ui-li-desc\"><strong>"+contacts[i].phoneNumbers[j].value+"</strong></p>"+
                             "</li>";
-                        //document.getElementById("contacts_div").innerHTML = lista
+                            //document.getElementById("contacts_div").innerHTML = lista
                             $("#listaContactos").html(lista);
                             $("#listaContactos").listview("refresh");      
                             modificado = true;
@@ -60,14 +60,13 @@ function actualizarContactos() {
         for(var i=0;i<indices.length;i++){
             var ind = indices[i];
             var contact = navigator.contacts.create();
-            if(contactosTodos[ind].displayName!="undefined")
+            if(contactosTodos[ind].name!=null)
+                contact.name = contactosTodos[ind].name;
+            if(contactosTodos[ind].displayName!=null)
                 contact.displayName = contactosTodos[ind].displayName;
-            if(contactosTodos[ind].givenName!="undefined")
-                contact.givenName = contactosTodos[ind].givenName;
-            if(contactosTodos[ind].familyName!="undefined")
-                contact.familyName = contactosTodos[ind].familyName;
             if(contactosTodos[ind].nickname!=null)
                 contact.nickname = contactosTodos[ind].nickname;
+            contact.nickname = contactosTodos[ind].nickname;
             if(contactosTodos[ind].phoneNumbers!=null)
                 contact.phoneNumbers =contactosTodos[ind].phoneNumbers;
             if(contactosTodos[ind].emails!=null)
@@ -99,11 +98,11 @@ function onSaveSuccess(contact) {
 }
 
 function onSaveError(contact) {
-    alert("guardado"+contact.displayName);
+    alert("guardado "+contact.name.givenName);
 }
             
 function onRemoveSuccess(contact) {
-    return true;
+    
 }
 
 function onRemoveError(contactError) {
