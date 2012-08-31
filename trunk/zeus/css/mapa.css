@@ -1,0 +1,41 @@
+/* 
+    Document   : mapa
+    Created on : 30/08/2012, 08:35:31 PM
+    Author     : christmo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.map{
+    height: 570px;
+}
+
+img.foto{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media(max-height:800px){
+    .map{
+        height: 560px;
+    }
+}
+
+@media(max-height:640px){
+    .map{
+        height: 500px;
+    }
+}
+
+@media(max-height:480px){
+    .map{
+        height: 350px;
+    }
+}
+
+@media(max-height:240px){
+    .map{
+        height: 150px;
+    }
+}
