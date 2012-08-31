@@ -50,11 +50,31 @@ $("#mapa").live("pageshow",function(){
 function init(position){
     document.getElementById("map").innerHTML = "";
     var coordenadas = position.split(",");
-    map = new OpenLayers.Map( 'map' );
+    
+     /*var extent = new OpenLayers.Bounds();
+    extent.extend(new OpenLayers.LonLat(coordenadas[1],coordenadas[0]));
+
+    extent.transform( new OpenLayers.Projection( 'EPSG:4326' ),
+        new OpenLayers.Projection( 'EPSG:900913' ));
+    */
+    // Mapa
+    var options = {
+        controls : [
+        new OpenLayers.Control.Navigation(),
+//        new OpenLayers.Control.PanZoomBar(),
+        new OpenLayers.Control.KeyboardDefaults(),
+//        new OpenLayers.Control.LayerSwitcher()
+        ]
+    };
+     
+    
+    map = new OpenLayers.Map( 'map',options );
     map.addLayer(new OpenLayers.Layer.OSM());
     ourpoint = new OpenLayers.LonLat(  coordenadas[1],coordenadas[0]);
     ourpoint.transform(new OpenLayers.Projection("EPSG:4326" ), map.getProjectionObject());
     map.setCenter(ourpoint, 17);
+    
+   
                 
     var zoom=16;
     var markers = new OpenLayers.Layer.Markers( "Markers" );
