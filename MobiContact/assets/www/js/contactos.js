@@ -21,9 +21,12 @@ function actualizarContactos() {
     options.multiple=true; 
     filter = ["id","displayName", "name", "phoneNumbers", "emails", "addresses",
     "ims", "organizations", "birthday", "note", "photos", "categories", "urls"];
-    navigator.contacts.find(filter,onContactsSuccess, options);
+    navigator.contacts.find(filter,onContactsSuccess,onContactsError, options);
+    
+    
                 
-    function onContactsSuccess(contacts) {                    
+    function onContactsSuccess(contacts) { 
+        alert(contacts.length);
         contactosTodos = contacts;
         var lista="";
         if(contacts.length>0){
@@ -90,6 +93,10 @@ function actualizarContactos() {
             contact.save(onSaveSuccess,onSaveError);
         }
         alert(numerosModificados+" numeros actualizados");
+    }
+    
+    function onContactsError(contactsError){
+        console.log(contactsError);
     }
 }
             
