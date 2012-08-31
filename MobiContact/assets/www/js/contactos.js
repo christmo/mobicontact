@@ -19,14 +19,13 @@ function actualizarContactos() {
                 
     options.filter="";
     options.multiple=true; 
-    filter = ["id","displayName", "name", "phoneNumbers", "emails", "addresses",
+    filter = ["id","displayName" ,"nickname","name", "phoneNumbers", "emails", "addresses",
     "ims", "organizations", "birthday", "note", "photos", "categories", "urls"];
     navigator.contacts.find(filter,onContactsSuccess,onContactsError, options);
     
     
                 
     function onContactsSuccess(contacts) { 
-        alert(contacts.length);
         contactosTodos = contacts;
         var lista="";
         if(contacts.length>0){
@@ -66,10 +65,9 @@ function actualizarContactos() {
             if(contactosTodos[ind].name!=null)
                 contact.name = contactosTodos[ind].name;
             if(contactosTodos[ind].displayName!=null)
-                contact.displayName = contactosTodos[ind].displayName;
-            if(contactosTodos[ind].nickname!=null)
-                contact.nickname = contactosTodos[ind].nickname;
-            contact.nickname = contactosTodos[ind].nickname;
+                contact.displayName= contactosTodos[ind].displayName;
+            if(contactosTodos[ind].nickName!=null)
+                contact.nickName = contactosTodos[ind].nickName;
             if(contactosTodos[ind].phoneNumbers!=null)
                 contact.phoneNumbers =contactosTodos[ind].phoneNumbers;
             if(contactosTodos[ind].emails!=null)
@@ -96,7 +94,7 @@ function actualizarContactos() {
     }
     
     function onContactsError(contactsError){
-        console.log(contactsError);
+        alert(contactsError);
     }
 }
             
