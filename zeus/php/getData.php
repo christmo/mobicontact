@@ -5,7 +5,8 @@ require_once('../dll/conect.php');
 
 $salida = "";
 
-$consultaSql = "SELECT id,nombre,direccion,telefono,precio,latitud,longitud,foto FROM sitios";
+$consultaSql = "SELECT id,nombre,direccion,telefono,precio,latitud,longitud,foto,tipo,mail_contacto 
+    FROM sitios where estado = 0";
 
 consulta($consultaSql);
 $resulset = variasFilas();
@@ -21,6 +22,8 @@ for ($i = 0; $i < count($resulset); $i++) {
             "\"precio\":".$fila["precio"] . "," . 
             "\"latitud\":".$fila["latitud"] . "," . 
             "\"longitud\":".$fila["longitud"] . "," . 
+            "\"longitud\":".$fila["tipo"] . "," . 
+            "\"longitud\":".$fila["mail_contacto"] . "," . 
             "\"foto\":\"".$fila["foto"] . "\"" . 
             "}";
     if ($i != count($resulset) - 1) {
