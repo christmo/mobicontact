@@ -14,7 +14,6 @@ if (isset($nombre)) {
     
 }
 
-//echo "<script type=\"text/javascript\">window.location = \"../index.php\"</script>";
-header("Location: ../index.php");
+header("Location: ../index.php#main");
 exit();  // you need to exit after a Location header is sent
 ?>

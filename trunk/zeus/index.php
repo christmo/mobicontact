@@ -58,7 +58,7 @@
             </div>
 
             <div data-role="content" id="entryText">
-                <form action="php/guardarDatos.php" method="GET">
+                <form action="php/guardarDatos.php" method="GET" data-ajax="false">
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="nombre">Nombre:</label>
                         <input type="text" name="nombre" id="i_nombre" value="" placeholder="Nombre del contacto"/>
