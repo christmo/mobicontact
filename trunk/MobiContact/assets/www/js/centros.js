@@ -12,8 +12,9 @@ $("#centros").live("pageshow", function(prepage) {
 });
 
 $("#centros ul li").live("click",function(evt){
+    evt.preventDefault();
     indActual = $(this).attr("id");
-    $.mobile.changePage("#locales","slide",false,true);
+    $.mobile.changePage("#locales");
     
 });
 
