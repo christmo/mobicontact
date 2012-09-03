@@ -9,38 +9,64 @@
 
         <script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.1.1.min.js"></script>
+        <link rel="stylesheet" href="themes/my.css"/>
         <!--        <script src="js/my.js"></script>-->
     </head>
     <body>
         <!-- PAGINA INICIAL -->
-        <div data-role="page" id="main">
+        <div data-role="page" id="main" data-theme="a">
             <div data-role="header">
-                <h1>MobiContact</h1>
+                <div id="head">
+                    <img id="img-head" src="themes/images/movistar-head.png" alt="">
+                </div>
             </div><!-- /header -->
 
             <div data-role="content">	
                 <div style=" text-align:center">
-                    <img style="width: 288px; height: 100px" src="themes/images/movistar_horizontal.jpg" />
                 </div>
-                <a href="#contactos" data-role="button" data-theme="a">Contactos</a>
+                <!--<a href="#contactos" data-role="button" data-theme="a">Contactos</a>
                 <a href="#mainPage" data-role="button" data-theme="a">Blog</a>
-                <a href="#centros" data-role="button" data-theme="a">Centros</a>
+                <a href="#centros" data-role="button" data-theme="a">Centros</a>-->
+                <section id="content">
+                    <article>
+                        <img src="themes/images/icon-asistente-movil1.png" class="img_content" alt="">
+                        <h1 class="title">Bienvenidos</h1>
+                        <p>La aplicación móvil de Movistar que te ayudara a configurar tus contactos, agregándoles el nuevo digito (9) a todos tus números de telefonía celular, según la  disposición del Concejo Nacional de Telecomunicaciones.</p>
+                    </article>
+                </section>
+                
             </div><!-- /content -->
+            <div data-role="footer" data-position="fixed" >
+                <ul class="ul-menu">
+                    <li class="li-menu"><a href="#contactos"><img src="themes/images/sim_icon2.png" alt=""><span>Contactos</span></a></li>
+                    <li class="li-menu"><a href="#mainPage"><img src="themes/images/notes_icon2.png" alt=""><span>Blog</span></a></li>
+                    <li class="li-menu"><a href="#centros"><img src="themes/images/icon-pc-movistar.png" alt=""><span>Centros</span></a></li>
+                    <li class="li-menu"><a href="#ayuda"><img src="themes/images/ayuda_icon.png" alt=""><span>Ayuda</span></a></li>
+                </ul>
+            </div>
         </div><!-- /page -->
 
-        <div data-role="page" id="mainPage">
+        <div data-role="page" data-theme="a" id="mainPage">
             <div data-role="header">
-                <a href="#main" data-rel="back">Home</a>
-                <h1>Blog Movistar</h1>
+                <a href="#main" data-rel="#main">Home</a>
+                <!-- <h1>Blog Movistar</h1> -->
+                <div id="head">
+                    <img id="img-head" src="themes/images/movistar-head.png" alt="">
+                </div>
             </div>
 
             <div data-role="content">  
                 <div id="status"></div>  
-                <ul id="linksList" data-role="listview" data-inset="true"></ul>
+                <ul id="linksList" data-role="listview" data-inset="true" data-filter="true"></ul>
             </div>
 
-            <div data-role="footer">
-                <h4>Loja -  Ecuador</h4>
+            <div data-role="footer" data-position="fixed" >
+                <ul class="ul-menu">
+                    <li class="li-menu"><a href="#contactos"><img src="themes/images/sim_icon2.png" alt=""><span>Contactos</span></a></li>
+                    <li class="li-menu"><a href="#mainPage"><img src="themes/images/notes_icon2.png" alt=""><span>Blog</span></a></li>
+                    <li class="li-menu"><a href="#centros"><img src="themes/images/icon-pc-movistar.png" alt=""><span>Centros</span></a></li>
+                    <li class="li-menu"><a href="#ayuda"><img src="themes/images/ayuda_icon.png" alt=""><span>Ayuda</span></a></li>
+                </ul>
             </div>
         </div>
 
@@ -59,82 +85,281 @@
         </div>
 
         <!-- PAGINA DE CONTACTOS -->
-        <div data-role="page" id="contactos">
+        <div data-role="page" data-theme="a" id="contactos">
             <div data-role="header">
-                <a href="#main" data-rel="back">Home</a>
-                <h1>Contactos</h1>
+                <a href="#main" data-rel="#main">Home</a>
+                <!-- <h1>Contactos</h1> -->
+                <div id="head">
+                    <img id="img-head" src="themes/images/movistar-head.png" alt="">
+                </div>
             </div> <!--header -->
 
             <div data-role="content">	
-                <div style=" text-align:center">
-                    <img style="width: 288px; height: 100px" src="themes/images/movistar_horizontal.jpg" />
-                </div>
-
                 <div data-role="content">
                     <a id="actualizar" data-role="button" href=#> Actualizar </a>
                     <div id="status"></div> 
-                    <ul id="listaContactos" data-role="listview" data-inset="true"></ul>
+                    <ul id="listaContactos" data-role="listview" data-inset="true" class="ul-menu"></ul>
                 </div>
             </div> <!--content -->
+            <div data-role="footer" data-position="fixed" >
+                <ul class="ul-menu">
+                    <li class="li-menu"><a href="#contactos"><img src="themes/images/sim_icon2.png" alt=""><span>Contactos</span></a></li>
+                    <li class="li-menu"><a href="#mainPage"><img src="themes/images/notes_icon2.png" alt=""><span>Blog</span></a></li>
+                    <li class="li-menu"><a href="#centros"><img src="themes/images/icon-pc-movistar.png" alt=""><span>Centros</span></a></li>
+                    <li class="li-menu"><a href="#ayuda"><img src="themes/images/ayuda_icon.png" alt=""><span>Ayuda</span></a></li>
+                </ul>
+            </div>
         </div> <!--page -->
+        
+        
+        <!-- PAGINA DE CENTROS -->
+        <div data-role="page" data-theme="a" id="centros">
+            <div data-role="header">
+                <a href="#main" data-rel="#main">Home</a>
+                <!-- <h1>Blog Movistar</h1> -->
+                <div id="head">
+                    <img id="img-head" src="themes/images/movistar-head.png" alt="">
+                </div>
+            </div>
+
+            <div data-role="content"> 
+                <ul data-role="listview" data-inset="true" id='centros_div'  class="ul-menu"></ul>
+            </div>
+
+            <div data-role="footer" data-position="fixed" >
+                <ul class="ul-menu">
+                    <li class="li-menu"><a href="#contactos"><img src="themes/images/sim_icon2.png" alt=""><span>Contactos</span></a></li>
+                    <li class="li-menu"><a href="#mainPage"><img src="themes/images/notes_icon2.png" alt=""><span>Blog</span></a></li>
+                    <li class="li-menu"><a href="#centros"><img src="themes/images/icon-pc-movistar.png" alt=""><span>Centros</span></a></li>
+                    <li class="li-menu"><a href="#ayuda"><img src="themes/images/ayuda_icon.png" alt=""><span>Ayuda</span></a></li>
+                </ul>
+            </div>
+        </div>
 
 
+        <!-- PAGINA DE locales -->
+        <div data-role="page" data-theme="a" id="locales">
+            <div data-role="header">
+                <a href="#main" data-rel="#main">Home</a>
+                <!-- <h1>Blog Movistar</h1> -->
+                <div id="head">
+                    <img id="img-head" src="themes/images/movistar-head.png" alt="">
+                </div>
+            </div>
 
-        <!-- PAGINA DE Centros -->
-        <div data-role="page" id="centros">
-            <div style=" text-align:center" data-role="header">
-                <div data-role="header">
-                    <a href="#main" data-rel="back">Home</a>
-                    <h1>Centros</h1>
+            <div data-role="content"> 
+                <div style=" text-align:center">
+                    
+                </div>
+                <div class="locales" data-role="listview"  data-inset="true" class="ul-menu"></div>
+            </div>
+
+            <div data-role="footer" data-position="fixed" >
+                <ul class="ul-menu">
+                    <li class="li-menu"><a href="#contactos"><img src="themes/images/sim_icon2.png" alt=""><span>Contactos</span></a></li>
+                    <li class="li-menu"><a href="#mainPage"><img src="themes/images/notes_icon2.png" alt=""><span>Blog</span></a></li>
+                    <li class="li-menu"><a href="#centros"><img src="themes/images/icon-pc-movistar.png" alt=""><span>Centros</span></a></li>
+                    <li class="li-menu"><a href="#ayuda"><img src="themes/images/ayuda_icon.png" alt=""><span>Ayuda</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- PAGINA DE locales -->
+        <div data-role="page" data-theme="a" id="mapa">
+            <div data-role="header">
+                <a href="#main" data-rel="#main">Home</a>
+                <!-- <h1>Blog Movistar</h1> -->
+                <div id="head">
+                    <img id="img-head" src="themes/images/movistar-head.png" alt="">
+                </div>
+            </div>
+
+            <div data-role="content" style="text-align:center; display:block; margin-left:auto; margin-right:auto;"> 
+                 <div id="map" style="height:350px; width:100%"></div>
+            </div>
+
+            <div data-role="footer" data-position="fixed" >
+                <ul class="ul-menu">
+                    <li class="li-menu"><a href="#contactos"><img src="themes/images/sim_icon2.png" alt=""><span>Contactos</span></a></li>
+                    <li class="li-menu"><a href="#mainPage"><img src="themes/images/notes_icon2.png" alt=""><span>Blog</span></a></li>
+                    <li class="li-menu"><a href="#centros"><img src="themes/images/icon-pc-movistar.png" alt=""><span>Centros</span></a></li>
+                    <li class="li-menu"><a href="#ayuda"><img src="themes/images/ayuda_icon.png" alt=""><span>Ayuda</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PAGINA DE AYUDA -->
+        <div data-role="page" data-theme="a" id="ayuda">
+            <div data-role="header">
+                <a href="#main" data-rel="#main">Home</a>
+                
+                <div id="head">
+                    <img id="img-head" src="themes/images/movistar-head.png" alt="">
                 </div>
             </div>
 
             <div data-role="content">
-                <div style=" text-align:center">
-                    <img style="width: 288px; height: 100px" src="themes/images/movistar_horizontal.jpg" />
-                </div>
-                <ul data-role="listview" data-inset="true" id='centros_div' ></ul>
-            </div>
-        </div> <!--page -->
-
-
-        <!-- PAGINA DE locales -->
-        <div data-role="page" id="locales">
-            <div style=" text-align:center" data-role="header" >
-                <div data-role="header">
-                    <a href="#main" data-rel="back">Atras</a>
-                    <h1>Locales</h1>
-                </div>
+                <section id="sec_ayuda">
+                    <article>
+                        <h1 class="title">Ayuda</h1>
+                        <p>Por favor, Seleccione una opción:</p>
+                        <ul class="ul-ayu">
+                            <li class="li-ayu"><a href="#ayuda-contactos"><img src="themes/images/sim_icon2.png" alt=""><span>Contactos</span></a></li>
+                            <li class="li-ayu"><a href="#ayuda-blog"><img src="themes/images/notes_icon2.png" alt=""><span>Blog</span></a></li>
+                            <li class="li-ayu"><a href="#ayuda-centros"><img src="themes/images/icon-pc-movistar.png" alt=""><span>Centros</span></a></li>
+                            <li class="li-ayu"><a href="#ayuda-ayuda"><img src="themes/images/ayuda_icon.png" alt=""><span>Ayuda</span></a></li>
+                        </ul>
+                    </article>
+                </section>
             </div>
 
-            <div data-role="content"   >
-                 <div style=" text-align:center">
-                    <img style="width: 288px; height: 100px" src="themes/images/movistar_horizontal.jpg" />
-                </div>
-                <div class="locales" data-role="listview"  data-inset="true"></div>
+            <div data-role="footer" data-position="fixed" >
+                <ul class="ul-menu">
+                    <li class="li-menu"><a href="#contactos"><img src="themes/images/sim_icon2.png" alt=""><span>Contactos</span></a></li>
+                    <li class="li-menu"><a href="#mainPage"><img src="themes/images/notes_icon2.png" alt=""><span>Blog</span></a></li>
+                    <li class="li-menu"><a href="#centros"><img src="themes/images/icon-pc-movistar.png" alt=""><span>Centros</span></a></li>
+                    <li class="li-menu"><a href="#ayuda"><img src="themes/images/ayuda_icon.png" alt=""><span>Ayuda</span></a></li>
+                </ul>
             </div>
-        </div> <!--page -->
+        </div>
 
-
-        
-         <!-- PAGINA DE mapa -->
-        <div data-role="page" id="mapa">
-            <div style=" text-align:center" data-role="header" >
-                <div data-role="header">
-                    <a href="#main" data-rel="back">Atras</a>
-                    <h1>Locales</h1>
+        <!-- PAGINA DE AYUDA contactos -->
+        <div data-role="page" data-theme="a" id="ayuda-contactos">
+            <div data-role="header">
+                <a href="#main" data-rel="#main">Home</a>
+                
+                <div id="head">
+                    <img id="img-head" src="themes/images/movistar-head.png" alt="">
                 </div>
             </div>
-            <div id="map" style="height: 410px;"></div>
-            <div class="nombre_local" data-role="footer" style="height: 50px;" >
+
+            <div data-role="content">
+                <section id="sec_ayuda">
+                    <article>
+                        <h1 class="title">Contactos</h1>
+                        <img src="themes/images/sim_icon2.png" class="img_content" alt="">
+                        <p>Dentro de esta opción encontrarte un botón “Actualizar” el cual le permitirá a la aplicación obtener todos sus contactos y verificar si cada números  almacenando es un número celular o convencional, en caso de ser número celular se le agregara el nuevo digito (9) establecido por el Concejo Nacional de Telecomunicaciones, es decir si un número de celular con este formato: 08x-xxx-xxx, al momento de convertirlo al nuevo formato se deberá escribir el digito 9 después del 0 y el resto del número, quedando de la siguiente forma: 098-xxx-xxxx. Por el contrario si el número encontrado resulta ser un número convencional no se realizara ningún cambio sobre el. El nuevo digito entrara en vigencia el 30 de septiembre del 2012.</p>
+                    </article>
+                </section>
             </div>
-        </div> <!--page -->
+
+            <div data-role="footer" data-position="fixed" >
+                <ul class="ul-menu">
+                    <li class="li-menu"><a href="#contactos"><img src="themes/images/sim_icon2.png" alt=""><span>Contactos</span></a></li>
+                    <li class="li-menu"><a href="#mainPage"><img src="themes/images/notes_icon2.png" alt=""><span>Blog</span></a></li>
+                    <li class="li-menu"><a href="#centros"><img src="themes/images/icon-pc-movistar.png" alt=""><span>Centros</span></a></li>
+                    <li class="li-menu"><a href="#ayuda"><img src="themes/images/ayuda_icon.png" alt=""><span>Ayuda</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PAGINA DE AYUDA Blog -->
+        <div data-role="page" data-theme="a" id="ayuda-blog">
+            <div data-role="header">
+                <a href="#main" data-rel="#main">Home</a>
+                
+                <div id="head">
+                    <img id="img-head" src="themes/images/movistar-head.png" alt="">
+                </div>
+            </div>
+
+            <div data-role="content">
+                <section id="sec_ayuda">
+                    <article>
+                        <h1 class="title">Blog</h1>
+                        <img src="themes/images/notes_icon2.png" class="img_content" alt="">
+                        <p>Dentro de la pestaña Blog encontrara los últimos post publicados dentro del <a href="http://telefonica.com.ec/blog/">blog oficial de movistar ecuador</a> estos aparecerán listados por su titulo, para ver su contenido puede hacer clic sobre cualquier tema de su interés o simplemente puede filtrar el tema que desee, escribiendo sobre la caja de texto destinado para ello, la búsqueda es sensible a los caracteres acentuados, es decir existen diferencias  entre vocales con tilde que vocales sin tilde, recomendamos tener esto en cuenta cuando realice sus búsquedas.</p>
+                    </article>
+                </section>
+            </div>
+
+            <div data-role="footer" data-position="fixed" >
+                <ul class="ul-menu">
+                    <li class="li-menu"><a href="#contactos"><img src="themes/images/sim_icon2.png" alt=""><span>Contactos</span></a></li>
+                    <li class="li-menu"><a href="#mainPage"><img src="themes/images/notes_icon2.png" alt=""><span>Blog</span></a></li>
+                    <li class="li-menu"><a href="#centros"><img src="themes/images/icon-pc-movistar.png" alt=""><span>Centros</span></a></li>
+                    <li class="li-menu"><a href="#ayuda"><img src="themes/images/ayuda_icon.png" alt=""><span>Ayuda</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PAGINA DE AYUDA centros -->
+        <div data-role="page" data-theme="a" id="ayuda-centros">
+            <div data-role="header">
+                <a href="#main" data-rel="#main">Home</a>
+                
+                <div id="head">
+                    <img id="img-head" src="themes/images/movistar-head.png" alt="">
+                </div>
+            </div>
+
+            <div data-role="content">
+                <section id="sec_ayuda">
+                    <article>
+                        <h1 class="title">Centros</h1>
+                        <img src="themes/images/icon-pc-movistar.png" class="img_content" alt="">
+                        <p>Dentro de esta opción encontraremos los principales centros autorizados del país ubicados dentro de un mapa provisto por el servicio de Open Street Maps, estos centros están divididos en las principales ciudades como Quito, Guayaquil, Cuenca y Loja, Seleccionamos la ciudad que deseemos y posteriormente se listaran los principales centros autorizados en esa ciudad, posteriormente visualizaremos el centro autorizado seleccionado en el mapa resaltado por una flecha roja en la ubicación exacta del centro autorizado.</p>
+                    </article>
+                </section>
+            </div>
+
+            <div data-role="footer" data-position="fixed" >
+                <ul class="ul-menu">
+                    <li class="li-menu"><a href="#contactos"><img src="themes/images/sim_icon2.png" alt=""><span>Contactos</span></a></li>
+                    <li class="li-menu"><a href="#mainPage"><img src="themes/images/notes_icon2.png" alt=""><span>Blog</span></a></li>
+                    <li class="li-menu"><a href="#centros"><img src="themes/images/icon-pc-movistar.png" alt=""><span>Centros</span></a></li>
+                    <li class="li-menu"><a href="#ayuda"><img src="themes/images/ayuda_icon.png" alt=""><span>Ayuda</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PAGINA DE AYUDA ayuda -->
+        <div data-role="page" data-theme="a" id="ayuda-ayuda">
+            <div data-role="header">
+                <a href="#main" data-rel="#main">Home</a>
+                
+                <div id="head">
+                    <img id="img-head" src="themes/images/movistar-head.png" alt="">
+                </div>
+            </div>
+
+            <div data-role="content">
+                <section id="sec_ayuda">
+                    <article>
+                        <h1 class="title">Ayuda</h1>
+                        <img src="themes/images/ayuda_icon.png" class="img_content" alt="">
+                        <p>Encontrara un menú con las opciones disponibles, el usuario deberá seleccionar una de las cuatro opciones disponibles.</br>
+                        <b>Contactos:</b> Provee la información necesaria para poder realizar la actualización de sus contactos.</br>
+                        <b>Blog:</b> Información general acerca de los post publicados en el Blog oficial de Movistar Ecuador.</br>
+                        <b>Centros:</b> Provee información necesaria sobre la ubicación de los principales centros  autorizados del país en las ciudades mas relevantes.</br>
+                        <b>Ayuda:</b> Muestra información básica de cada elemento de la aplicación.
+                        </p>
+                    </article>
+                </section>
+            </div>
+
+            <div data-role="footer" data-position="fixed" >
+                <ul class="ul-menu">
+                    <li class="li-menu"><a href="#contactos"><img src="themes/images/sim_icon2.png" alt=""><span>Contactos</span></a></li>
+                    <li class="li-menu"><a href="#mainPage"><img src="themes/images/notes_icon2.png" alt=""><span>Blog</span></a></li>
+                    <li class="li-menu"><a href="#centros"><img src="themes/images/icon-pc-movistar.png" alt=""><span>Centros</span></a></li>
+                    <li class="li-menu"><a href="#ayuda"><img src="themes/images/ayuda_icon.png" alt=""><span>Ayuda</span></a></li>
+                </ul>
+            </div>
+        </div>
 
         <script type="text/javascript" charset="utf-8" src="js/rss.js"></script>
-        <script type="text/javascript" charset="utf-8" src="js/cordova-2.0.0.js"></script>  
+        <script type="text/javascript" charset="utf-8" src="cordova-2.0.0.js"></script>  
         <script type="text/javascript" charset="utf-8" src="js/contactos.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/fittext.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/centros.js"></script>
         <script src="http://www.openlayers.org/api/OpenLayers.js">  </script>
+        <script type="text/javascript" charset="utf-8">
+            //$("span").fitText();
+            //$("span").fitText(1.2);
+            $("span").fitText(1.1, { minFontSize: '11px', maxFontSize: '20px' });
+        </script>
 
         <!--        <div style=" text-align:center">
                     <img style="width: 288px; height: 100px" src="themes/images/movistar_horizontal.jpg" />
