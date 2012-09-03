@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>MobiContact</title>
+        <link rel="stylesheet" href="themes/jquery.mobile-1.1.1.min.css" />
+        <!--        <link rel="stylesheet" href="themes/my.css" />-->
+
+        <script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.1.1.min.js"></script>
+        <!--        <script src="js/my.js"></script>-->
+    </head>
+    <body>
+        <!-- PAGINA INICIAL -->
+        <div data-role="page" id="main">
+            <div data-role="header">
+                <h1>MobiContact</h1>
+            </div><!-- /header -->
+
+            <div data-role="content">	
+                <div style=" text-align:center">
+                    <img style="width: 288px; height: 100px" src="themes/images/movistar_horizontal.jpg" />
+                </div>
+                <a href="#contactos" data-role="button" data-theme="a">Contactos</a>
+                <a href="#mainPage" data-role="button" data-theme="a">Blog</a>
+                <a href="#centros" data-role="button" data-theme="a">Centros</a>
+            </div><!-- /content -->
+        </div><!-- /page -->
+
+        <div data-role="page" id="mainPage">
+            <div data-role="header">
+                <a href="#main" data-rel="back">Home</a>
+                <h1>Blog Movistar</h1>
+            </div>
+
+            <div data-role="content">  
+                <div id="status"></div>  
+                <ul id="linksList" data-role="listview" data-inset="true"></ul>
+            </div>
+
+            <div data-role="footer">
+                <h4>Loja -  Ecuador</h4>
+            </div>
+        </div>
+
+        <div data-role="page" id="contentPage">
+            <div data-role="header">
+                <a href="#main" data-rel="back">Home</a>
+                <h1>Blog Movistar</h1>
+            </div>
+
+            <div data-role="content" id="entryText">
+            </div>
+
+            <div data-role="footer">
+                <a href="#mainPage" data-rel="back">Posts!</a>
+            </div>
+        </div>
+
+        <!-- PAGINA DE CONTACTOS -->
+        <div data-role="page" id="contactos">
+            <div data-role="header">
+                <a href="#main" data-rel="back">Home</a>
+                <h1>Contactos</h1>
+            </div> <!--header -->
+
+            <div data-role="content">	
+                <div style=" text-align:center">
+                    <img style="width: 288px; height: 100px" src="themes/images/movistar_horizontal.jpg" />
+                </div>
+
+                <div data-role="content">
+                    <a id="actualizar" data-role="button" href=#> Actualizar </a>
+                    <div id="status"></div> 
+                    <ul id="listaContactos" data-role="listview" data-inset="true"></ul>
+                </div>
+            </div> <!--content -->
+        </div> <!--page -->
+
+
+
+        <!-- PAGINA DE Centros -->
+        <div data-role="page" id="centros">
+            <div style=" text-align:center" data-role="header">
+                <div data-role="header">
+                    <a href="#main" data-rel="back">Home</a>
+                    <h1>Centros</h1>
+                </div>
+            </div>
+
+            <div data-role="content">
+                <div style=" text-align:center">
+                    <img style="width: 288px; height: 100px" src="themes/images/movistar_horizontal.jpg" />
+                </div>
+                <ul data-role="listview" data-inset="true" id='centros_div' ></ul>
+            </div>
+        </div> <!--page -->
+
+
+        <!-- PAGINA DE locales -->
+        <div data-role="page" id="locales">
+            <div style=" text-align:center" data-role="header" >
+                <div data-role="header">
+                    <a href="#main" data-rel="back">Atras</a>
+                    <h1>Locales</h1>
+                </div>
+            </div>
+
+            <div data-role="content"   >
+                 <div style=" text-align:center">
+                    <img style="width: 288px; height: 100px" src="themes/images/movistar_horizontal.jpg" />
+                </div>
+                <div class="locales" data-role="listview"  data-inset="true"></div>
+            </div>
+        </div> <!--page -->
+
+
+        
+         <!-- PAGINA DE mapa -->
+        <div data-role="page" id="mapa">
+            <div style=" text-align:center" data-role="header" >
+                <div data-role="header">
+                    <a href="#main" data-rel="back">Atras</a>
+                    <h1>Locales</h1>
+                </div>
+            </div>
+            <div id="map" style="height: 410px;"></div>
+            <div class="nombre_local" data-role="footer" style="height: 50px;" >
+            </div>
+        </div> <!--page -->
+
+        <script type="text/javascript" charset="utf-8" src="js/rss.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/cordova-2.0.0.js"></script>  
+        <script type="text/javascript" charset="utf-8" src="js/contactos.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/centros.js"></script>
+        <script src="http://www.openlayers.org/api/OpenLayers.js">  </script>
+
+        <!--        <div style=" text-align:center">
+                    <img style="width: 288px; height: 100px" src="themes/images/movistar_horizontal.jpg" />
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <div style=" text-align:center">
+                            <a data-role="button" data-inline="true" href="centros.html">
+                                <img src="themes/images/sim_icon2.png" style="width: 60px; height: px"/>
+                                <br>Centros
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div style=" text-align:center">
+                            <a data-role="button" data-inline="true" href="perfil.html">
+                                <img src="themes/images/icon-pc-movistar.png" style="width: 60px; height: px"/>
+                                <br>Peril
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ui-block-a">
+                    </div>
+                    <div class="ui-block-b">
+                    </div>
+                    <div class="ui-block-a">
+                        <div style=" text-align:center">
+                            <a data-role="button" data-inline="true" href="contactos.html">
+                                <img src="themes/images/tools_icon2.png" style="width: 60px; height: px"/>
+                                <br>Numeros
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div style=" text-align:center">
+                            <a data-role="button" data-inline="true" href="noticias.html">
+                                <img src="themes/images/notes_icon2.png" style="width: 60px; height: px"/>
+                                <br>Ofertas
+                            </a>
+                        </div>
+                    </div>
+        
+                </div>-->
+    </body>
+</html>
