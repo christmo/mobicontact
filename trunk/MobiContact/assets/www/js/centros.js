@@ -4,46 +4,88 @@
  */
 
 var ciudades = [];
+var indActual = "";
+var indLocal = "";
 
-$("#centros").live("pageshow", function(prepage) {
+$("#centros").live("pageshow", function(evt) {
+    evt.preventDefault();
+    try
+    {
+        getJson();
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
     
-    getJson();
+    
     
 });
 
 $("#centros ul li").live("click",function(evt){
-    evt.preventDefault();
-    indActual = $(this).attr("id");
-    $.mobile.changePage("#locales");
+    try
+    {
+        evt.preventDefault();
+        indActual = $(this).attr("id");
+        //$.mobile.changePage("#locales");
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
+    
     
 });
 
 $("#locales").live("pageshow",function(){
-    $(".inner").html("<p>"+ciudades[indActual].nombre+"</p>");
-    var localesHtml = "";
-    for(var i = 0; i<ciudades[indActual].locales.length;i++){
-        var mlocal = ciudades[indActual].locales[i];
+    try
+    {
+        var localesHtml = "";
+        for(var i = 0; i<ciudades[indActual].locales.length;i++){
+            var mlocal = ciudades[indActual].locales[i];
        
-        localesHtml += "<li id=\""+i+"\" data-wrapperels=\"div\" data-icon=\"arrow-r\" data-iconpos=\"right\""+
-        " class=\"ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c\">"+
-        "<div class=\"ui-btn-inner ui-li\"><div class=\"ui-btn-text\"><a href=\"#\""+
-        "class=\"ui-link-inherit\">"+mlocal.nombre+"</a></div>"+
-        "<span class=\"ui-icon ui-icon-arrow-r ui-icon-shadow\">&nbsp;</span></div></li>";
+            localesHtml += "<li id=\""+i+"\" data-wrapperels=\"div\" data-icon=\"arrow-r\" data-iconpos=\"right\""+
+            " class=\"ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c\">"+
+            "<div class=\"ui-btn-inner ui-li\"><div class=\"ui-btn-text\"><a href=\"#mapa\""+
+            "class=\"ui-link-inherit\">"+mlocal.nombre+"</a></div>"+
+            "<span class=\"ui-icon ui-icon-arrow-r ui-icon-shadow\">&nbsp;</span></div></li>";
+        }
+        $(".locales").html(localesHtml);
     }
-    $(".locales").html(localesHtml);
+    catch(err)
+    {
+        console.log(err);
+    }
+    
 });
     
 $("#locales div li").live("click",function(evt){
-    indLocal = $(this).attr("id");
-    $.mobile.changePage("#mapa","slide",false,true);
+    try
+    {
+        indLocal = $(this).attr("id");
+        //$.mobile.changePage("#mapa","slide",false,true);
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
+    
     
 }); 
 
 
 $("#mapa").live("pageshow",function(){
-    $(".nombre_local").html("");
-    $(".nombre_local").html("<h4>"+ciudades[indActual].locales[indLocal].nombre+"</h4>");
-    init(ciudades[indActual].locales[indLocal].coordenadas);
+    try
+    {
+        $(".nombre_local").html("");
+        $(".nombre_local").html("<h4>"+ciudades[indActual].locales[indLocal].nombre+"</h4>");
+        init(ciudades[indActual].locales[indLocal].coordenadas);
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
+    
     
 });
 
@@ -52,7 +94,7 @@ function init(position){
     document.getElementById("map").innerHTML = "";
     var coordenadas = position.split(",");
     
-     /*var extent = new OpenLayers.Bounds();
+    /*var extent = new OpenLayers.Bounds();
     extent.extend(new OpenLayers.LonLat(coordenadas[1],coordenadas[0]));
 
     extent.transform( new OpenLayers.Projection( 'EPSG:4326' ),
@@ -62,9 +104,9 @@ function init(position){
     var options = {
         controls : [
         new OpenLayers.Control.Navigation(),
-//        new OpenLayers.Control.PanZoomBar(),
+        //        new OpenLayers.Control.PanZoomBar(),
         new OpenLayers.Control.KeyboardDefaults(),
-//        new OpenLayers.Control.LayerSwitcher()
+        //        new OpenLayers.Control.LayerSwitcher()
         ]
     };
      
@@ -101,7 +143,7 @@ function getJson(){
                     
                 "<li id=\""+i+"\" data-wrapperels=\"div\" data-icon=\"arrow-r\" data-iconpos=\"right\""+
                 " class=\"ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c\">"+
-                "<div class=\"ui-btn-inner ui-li\"><div class=\"ui-btn-text\"><a href=\"#\""+
+                "<div class=\"ui-btn-inner ui-li\"><div class=\"ui-btn-text\"><a href=\"#locales\""+
                 "class=\"ui-link-inherit\">"+data.ciudades[i].nombre+"</a></div>"+
                 "<span class=\"ui-icon ui-icon-arrow-r ui-icon-shadow\">&nbsp;</span></div></li>";
                   

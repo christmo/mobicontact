@@ -6,10 +6,16 @@ var textonly;
 var html;
 
 $(document).bind("mobileinit", function(){
-    $.mobile.page.prototype.options.addBackBtn= false;
+    
     theme =  $.mobile.loader.prototype.options.theme;
     msgText =  $.mobile.loader.prototype.options.text;
     textVisible =  $.mobile.loader.prototype.options.textVisible;
+    
+    $.mobile.defaultPageTransition = 'none';
+    $.mobile.defaultDialogTransition = 'none';
+    $.mobile.useFastClick = true;
+    $.mobile.page.prototype.options.addBackBtn= false;
+    
     textonly = "demo";
     html = "dale";
 });
