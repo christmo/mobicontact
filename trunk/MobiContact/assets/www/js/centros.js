@@ -44,11 +44,28 @@ $("#locales").live("pageshow",function(){
         for(var i = 0; i<ciudades[indActual].locales.length;i++){
             var mlocal = ciudades[indActual].locales[i];
        
-            localesHtml += "<li id=\""+i+"\" data-wrapperels=\"div\" data-icon=\"arrow-r\" data-iconpos=\"right\""+
+            localesHtml += 
+                    "<li id=\""+i+"\" data-icon=\"arrow-r\"  data-wrapperels=\"div\" data-iconpos=\"right\""+
+                    "data-theme=\"b\" class=\"ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-b\">"+
+                    "<div class=\"ui-btn-inner ui-li\"><div class=\"ui-btn-text\">"+
+                    "<a href=\"#mapa\" class=\"ui-link-inherit\">"+mlocal.nombre+"</a>"+
+                    "</div><span class=\"ui-icon ui-icon-arrow-r ui-icon-shadow\">&nbsp;</span></div></li>";
+                
+                
+                /*"<li data-theme=\"b\" id=\""+i+"\" data-wrapperels=\"div\" data-icon=\"arrow-r\" data-iconpos=\"right\""+
             " class=\"ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c\">"+
             "<div class=\"ui-btn-inner ui-li\"><div class=\"ui-btn-text\"><a href=\"#mapa\""+
             "class=\"ui-link-inherit\">"+mlocal.nombre+"</a></div>"+
             "<span class=\"ui-icon ui-icon-arrow-r ui-icon-shadow\">&nbsp;</span></div></li>";
+                /*"<li id=\""+i+"\"><a href=\"index.html\" data-role=\"button\" data-shadow=\"true\""+
+                "data-iconshadow=\"true\" data-wrapperels=\"span\" data-theme=\"b\""+
+                "class=\"ui-btn ui-shadow ui-btn-corner-all ui-btn-up-b\">"+
+                "<span class=\"ui-btn-inner ui-btn-corner-all\">"+
+                "<span class=\"ui-btn-text\">"+mlocal.nombre+"</span></span></a><li>";*/
+                
+                
+                
+             
         }
         $(".locales").html(localesHtml);
     }
@@ -133,19 +150,26 @@ function getJson(){
     document.getElementById("centros_div").innerHTML = "";
     $.ajax({
         type: "GET",
-        url: "http://200.0.29.91:8080/MoviRest/ciudades.json",
+        //url: "http://172.16.57.12:8080/MoviRest/ciudades.json",
+        url:"js/ciudades.json",
         async: false,
         dataType: "json",
         success: function(data){
             ciudades = data.ciudades;       
             for(var i = 0; i < data.ciudades.length;i++ ){
                 document.getElementById("centros_div").innerHTML +=
+                    "<li id=\""+i+"\" data-icon=\"arrow-r\"  data-wrapperels=\"div\" data-iconpos=\"right\""+
+                    "data-theme=\"b\" class=\"ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-b\">"+
+                    "<div class=\"ui-btn-inner ui-li\"><div class=\"ui-btn-text\">"+
+                    "<a href=\"#locales\" class=\"ui-link-inherit\">"+data.ciudades[i].nombre+"</a>"+
+                    "</div><span class=\"ui-icon ui-icon-arrow-r ui-icon-shadow\">&nbsp;</span></div></li>";
                     
-                "<li id=\""+i+"\" data-wrapperels=\"div\" data-icon=\"arrow-r\" data-iconpos=\"right\""+
+                    
+                /*"<li data-theme=\"\" id=\""+i+"\" data-wrapperels=\"div\" data-icon=\"arrow-r\" data-iconpos=\"right\""+
                 " class=\"ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c\">"+
                 "<div class=\"ui-btn-inner ui-li\"><div class=\"ui-btn-text\"><a href=\"#locales\""+
                 "class=\"ui-link-inherit\">"+data.ciudades[i].nombre+"</a></div>"+
-                "<span class=\"ui-icon ui-icon-arrow-r ui-icon-shadow\">&nbsp;</span></div></li>";
+                "<span class=\"ui-icon ui-icon-arrow-r ui-icon-shadow\">&nbsp;</span></div></li>";*/
                   
                             
             }
@@ -153,3 +177,4 @@ function getJson(){
         }
     });
 }
+

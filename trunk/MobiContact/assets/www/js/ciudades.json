@@ -1,0 +1,54 @@
+{
+    "server":"club java",
+    "ciudades": [
+    {
+        "nombre":"Quito" , 
+        "ubicacion":"-0.223056, -78.5125",
+        "locales":[{"nombre":"Agilcom Quicentro","coordenadas":"-0.176457,-78.479284"
+        },{
+            "nombre":"Blue Comunicaciones Jardín","coordenadas":"-0.189680, -78.487160"
+        },{
+            "nombre":"Celuno CCI","coordenadas":"-0.176457, -78.484785"
+        },{
+            "nombre":"Cybercell El Bosque","coordenadas":"-0.161823, -78.496715"
+        },{
+            "nombre":"Cybercell Quicentro Sur","coordenadas":"-0.285198, -78.543728"
+        },{
+            "nombre":"Cybercell Quicentro Cybercell Recreo","coordenadas":"-0.252385, -78.523140"
+        }]
+    }, 
+    {
+        "nombre":"Guayaquil" , 
+        "ubicacion":"-2.16667,-79.9",
+        "locales":[{
+            "nombre":"Comunikt Mall del Sol","coordenadas":"-2.155001, -79.892290"
+        },{
+            "nombre":"Comunikt Mall del Sur","coordenadas":"-2.229501, -79.898695"
+        },{
+            "nombre":"Cybercell Chimborazo","coordenadas":"-2.191560, -79.882816"
+        },{
+            "nombre":"Cybercell Mall del Sol","coordenadas":"-2.155065, -79.892311"
+        },{
+            "nombre":"Cybercell Mall del Sur","coordenadas":"-2.229530, -79.898538"
+        },{
+            "nombre":"Movilex City Mall","coordenadas":"-2.140828, -79.909490"
+        }]
+    }, 
+    {
+        "nombre":"Cuenca" , 
+        "ubicacion":"-2.899167, -79.015278",
+        "locales":[{
+            "nombre":"Labcelcom","coordenadas":"-2.899072, -79.004274"
+        },{
+            "nombre":"Movilex","coordenadas":"-2.919447, -79.015950"
+        }]
+    },
+    {
+        "nombre":"Loja" , 
+        "ubicacion":"-3.983333, -79.2",
+        "locales":[{
+            "nombre":"Vimotech","coordenadas":"-3.997991, -79.201443"
+        }]
+    }
+    ]
+}
