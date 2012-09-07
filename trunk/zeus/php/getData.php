@@ -11,7 +11,7 @@ $consultaSql = "SELECT id,nombre,direccion,telefono,precio,latitud,longitud,foto
 consulta($consultaSql);
 $resulset = variasFilas();
 
-$salida = "{\"sitios\": [";
+$salida = "{\"success\":\"true\",\"sitios\": [";
 for ($i = 0; $i < count($resulset); $i++) {
     $fila = $resulset[$i];
     $salida .= "{" . 
@@ -19,11 +19,11 @@ for ($i = 0; $i < count($resulset); $i++) {
             "\"nombre\":\"".$fila["nombre"] . "\"," . 
             "\"direccion\":\"".$fila["direccion"] ."\"," . 
             "\"telefono\":\"".$fila["telefono"] . "\"," . 
-            "\"precio\":".$fila["precio"] . "," . 
+            "\"precio\":\"".$fila["precio"] . "\"," . 
             "\"latitud\":".$fila["latitud"] . "," . 
             "\"longitud\":".$fila["longitud"] . "," . 
-            "\"longitud\":".$fila["tipo"] . "," . 
-            "\"longitud\":".$fila["mail_contacto"] . "," . 
+            "\"tipo\":\"".$fila["tipo"] . "\"," . 
+            "\"mail_contacto\":\"".$fila["mail_contacto"] . "\"," . 
             "\"foto\":\"".$fila["foto"] . "\"" . 
             "}";
     if ($i != count($resulset) - 1) {

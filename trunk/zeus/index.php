@@ -11,7 +11,7 @@
 
         <link rel="stylesheet" href="css/mapa.css"/>
         <script src="http://www.openlayers.org/api/OpenLayers.js">  </script>
-        <script type="text/javascript" charset="utf-8" src="js/centros.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/centros1.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/crear.js"></script>
     </head>
     <body>
@@ -36,14 +36,86 @@
             </div>
 
             <div data-role="content">  
-                <img id="foto" src="" class="foto"/>
-                <div id="tipo"></div>
-                <div id="nombre"></div>
-                <div id="dir"></div>
-                <div id="tel"></div>
-                <div id="precio"></div>
-                <div id="lat"></div>
-                <div id="lon"></div>
+                <div style="padding: 10px;"><img id="foto" src="" class="foto"/></div>
+                <label>Nombre:</label>
+                <div style="padding: 10px;">
+                    <div id="nombre" style="
+                         font-size: 2em;
+                         color: #000;
+                         text-align:center;
+                         background: rgba(255,255,255,5);">
+                    </div>
+                </div>
+                <label>Direcci&aacute;n:</label>
+                <div style="padding: 10px;">
+                    <div id="dir" style="
+                         font-size: 2em;
+                         color: #000;
+                         text-align:center;
+                         background: rgba(255,255,255,5);">
+                    </div>
+                </div>
+                
+                <label>Tel&eacute;fono:</label>
+                <div style="padding: 10px;">
+                    <div id="tel" style="
+                         font-size: 2em;
+                         color: #000;
+                         text-align:center;
+                         background: rgba(255,255,255,5);">
+                    </div>
+                </div>
+                
+                <label>Correo Electr&oacute;nico:</label>
+                <div style="padding: 10px;">
+                    <div id="mail" style="
+                         font-size: 2em;
+                         color: #000;
+                         text-align:center;
+                         background: rgba(255,255,255,5);">
+                    </div>
+                </div>
+                
+                <label>Sitio en:</label>
+                <div style="padding: 10px;">
+                    <div id="tipo" style="
+                         font-size: 2em;
+                         color: #000;
+                         text-align:center;
+                         background: rgba(255,255,255,5);">
+                    </div>
+                </div>
+                
+                <label>Costo:</label>
+                <div style="padding: 10px;">
+                    <div id="precio" style="
+                         font-size: 2em;
+                         color: #000;
+                         text-align:center;
+                         background: rgba(255,255,255,5);">
+                    </div>
+                </div>
+                
+                <label>Latitud:</label>
+                <div style="padding: 10px;">
+                    <div id="lat" style="
+                         font-size: 2em;
+                         color: #000;
+                         text-align:center;
+                         background: rgba(255,255,255,5);">
+                    </div>
+                </div>
+                
+                <label>Longitud:</label>
+                <div style="padding: 10px;">
+                    <div id="lon" style="
+                         font-size: 2em;
+                         color: #000;
+                         text-align:center;
+                         background: rgba(255,255,255,5);">
+                    </div>
+                </div>
+                
             </div>
 
             <div data-role="footer">

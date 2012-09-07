@@ -14,7 +14,22 @@ img.foto{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding: 10px;
 }
+
+/*.ui-content .nombre {
+    background:#d40000;
+    margin:0 auto;
+    padding:0;
+    width:400px;border-radius:7px;-moz-border-radius: 7px; -webkit-border-radius : 7px;}
+div#rounded-box2 p {margin:0;padding:10px;color:#fff;}  */
+
+/*div.nombre {
+    font-size: 2em;
+    color: #000;
+    text-align:center;
+    background: rgba(255,255,255,5);
+}*/
 
 @media(max-height:800px){
     .map{
