@@ -6,15 +6,20 @@
 var ciudades = [];
 var layerLugares;
 var zoom=7;
-var lat = -3.9912;
+var lat = -1.9912;
 var lon = -79.20733;
 var map;
-var poolLugares = new Array();
-var selectFeatures;
+
 $("#main").live("pageshow", function(prepage) {
+    obtenerSitios();    
     init();
-    obtenerSitios();
 });
+
+function dibujarSitios(data){
+    for(var i=0;i<data.sitios.length;i++){
+        graficarIcon(data.sitios[i]);
+    }
+}
 
 function crearMapa(div){
     var extent = new OpenLayers.Bounds();
@@ -33,12 +38,10 @@ function crearMapa(div){
         //        new OpenLayers.Control.LayerSwitcher()
         ],
         units: 'm',
-        numZoomLevels : 21,
+        numZoomLevels : 19,
         maxResolution : 'auto',
         restrictedExtent : extent
     };
-    
-    //    var coordenadas = position.split(",");
     return new OpenLayers.Map(div, options);
 }
 
@@ -46,17 +49,6 @@ function init(){
     document.getElementById("map").innerHTML = "";
     
     map = crearMapa('map');
-    //    map = new OpenLayers.Map( 'map' );
-    //    map.addLayer(new OpenLayers.Layer.OSM());
-    //    ourpoint = new OpenLayers.LonLat(  coordenadas[1],coordenadas[0]);
-    //    ourpoint.transform(new OpenLayers.Projection("EPSG:4326" ), map.getProjectionObject());
-    //    map.setCenter(ourpoint, 17);
-                
-    //    var zoom=16;
-    //    var markers = new OpenLayers.Layer.Markers( "Markers" );
-    //    map.addLayer(markers); 
-    //    markers.addMarker(new OpenLayers.Marker(ourpoint)); 
-    //    map.setCenter (ourpoint, zoom);
     
     var styleLienzo = new OpenLayers.StyleMap( {
         externalGraphic : '\${img}',
@@ -72,7 +64,8 @@ function init(){
         tipo : '\${tipo}',
         lon: '\${lon}',
         lat: '\${lat}',
-        //        mail: '\${mail}',
+        mail: '\${mail}',
+        foto: '\${foto}',
         
         label : '..\${nombre}',
         fontColor: '\${favColor}',
@@ -88,11 +81,11 @@ function init(){
     });   
     layerLugares.id = 'Lugares';
 
-    map.addLayer(new OpenLayers.Layer.OSM());
+    map.addLayer(new OpenLayers.Layer.OSM());
     map.addLayer( layerLugares );
     
     layerLugares.setVisibility(true);
-    selectFeatures = new OpenLayers.Control.SelectFeature(
+    var selectFeatures = new OpenLayers.Control.SelectFeature(
         [ layerLugares ],
         {
             clickout: true,
@@ -108,7 +101,7 @@ function init(){
         });
 
     map.addControl( selectFeatures );
-    
+    selectFeatures.activate();
     
     var lonLat = new OpenLayers.LonLat( lon,lat ).transform(
         new OpenLayers.Projection( 'EPSG:4326' ),
@@ -117,55 +110,46 @@ function init(){
     map.setCenter ( lonLat, zoom );
 }
 
-function dibujarSitios(data){
-    for(var i=0;i<data.sitios.length;i++){
-        graficarIcon(data.sitios[i]);
-    }
-}
 
 function graficarIcon(sitio){
     var dibujoLugar = null;
-//    var idLugar = sitio.id;
-    
-    //Extracción dependiendo del Layer
-//    dibujoLugar = layerLugares.getFeatureById( idLugar );
-//    if(dibujoLugar==null){
-        // Coordenadas
-        var y = sitio.latitud;
-        var x = sitio.longitud;
 
-        // Posicion lon : lat
-        var point = new OpenLayers.Geometry.Point( x, y );
-        // Transformacion de coordendas
-        point.transform( new OpenLayers.Projection( 'EPSG:4326' ),
-            new OpenLayers.Projection( 'EPSG:900913' ) );
+    var x = sitio.longitud;
+    var y = sitio.latitud;
 
-        dibujoLugar = new OpenLayers.Feature.Vector( point, {
-            img: 'css/images/icon-pc-movistar.png',
-            wd: "50",
-            hg: "50",
+    // Posicion lon : lat
+    var point = new OpenLayers.Geometry.Point( x, y );
+    // Transformacion de coordendas
+    point.transform( new OpenLayers.Projection( 'EPSG:4326' ),
+        new OpenLayers.Projection( 'EPSG:900913' ) );
+
+    dibujoLugar = new OpenLayers.Feature.Vector( point, {
+        img: 'css/images/house.png',
+        wd: "50",
+        hg: "50",
         
-            id: sitio.id,
-            nombre : sitio.nombre,
-            dir : sitio.direccion,
-            tel : sitio.telefono,
-            tipo : sitio.tipo,
-            precio : sitio.precio,
-            lon: sitio.longitud,
-            lat: sitio.latitud,
-            mail: sitio.mail_contacto,
+        id: sitio.id,
+        nombre : sitio.nombre,
+        dir : sitio.direccion,
+        tel : sitio.telefono,
+        tipo : sitio.tipo,
+        precio : sitio.precio,
+        lon: sitio.longitud,
+        lat: sitio.latitud,
+        mail: sitio.mail_contacto,
+        foto: "fotos/"+sitio.foto,
 
-            favColor : 'blue',
-            align: 'lt',
-            poppedup : false
-        });
-        
-        // Se coloca el ID del sitio a la imagen
-        dibujoLugar.id = "S"+sitio.id;
+        favColor : 'blue',
+        align: 'lt',
+        poppedup : false
+    });
 
-        //Se añade a la capa que corresponda
-        layerLugares.addFeatures( [dibujoLugar] );
-//    }
+    // Se coloca el ID de sitio a la imagen
+    dibujoLugar.id = "S"+sitio.id;
+
+    //Se añade a la capa que corresponda
+    layerLugares.addFeatures( [dibujoLugar] );
+
 }
 
 function onPuntoSelect(feature){
@@ -185,10 +169,11 @@ function onPuntoSelect(feature){
     //    map.addPopup( popup );
     console.log(feature);
     $.mobile.changePage("#info","slide",false,true);
-    $('#foto').attr('src',feature.data.img);
+    $('#foto').attr('src',feature.data.foto);
     $('#nombre').html(feature.data.nombre);
     $('#dir').html(feature.data.dir);
     $('#tel').html(feature.data.tel);
+    $('#mail').html(feature.data.mail);
     $('#tipo').html(feature.data.tipo);
     $('#lon').html(feature.data.lon);
     $('#lat').html(feature.data.lat);
