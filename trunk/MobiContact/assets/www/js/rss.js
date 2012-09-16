@@ -11,14 +11,22 @@ $(document).bind("mobileinit", function(){
     msgText =  $.mobile.loader.prototype.options.text;
     textVisible =  $.mobile.loader.prototype.options.textVisible;
     
-    $.mobile.defaultPageTransition = 'none';
-    $.mobile.defaultDialogTransition = 'none';
-    $.mobile.useFastClick = true;
-    $.mobile.page.prototype.options.addBackBtn= false;
+    
+    
+    
+    //$.mobile.defaultPageTransition = 'none';
+    //$.mobile.defaultDialogTransition = 'none';
+    //$.mobile.useFastClick = true;
+    //$.mobile.page.prototype.options.addBackBtn= false;
     
     textonly = "demo";
     html = "dale";
+    
+    alert("Ready");
 });
+
+
+
 
 ////EDIT THESE LINES
 //Title of the blog
@@ -34,20 +42,32 @@ $(".contentLink").live("click", function() {
     selectedEntry = $(this).data("entryid");
 });
 
+
+
 function renderEntries(entries) {
+    
     var s = '';
     $.each(entries, function(i, v) {
-        s += '<li><a href="#contentPage" class="contentLink" data-entryid="'+i+'">' + v.title + '</a></li>';
+        s +=  '<li><a href="#contentPage" class="contentLink" data-entryid="'+i+'">' + v.title + '</a></li>';
     });
+    
     $("#linksList").html(s);
-    $("#linksList").listview("refresh");		
+    $("#linksList").listview("refresh");
+   
+     
 }
 
 //Listen for main page
+
+
+
+            
 $("#mainPage").live("pageinit", function() {
+        
     //Set the title
+    
     $("h1", this).text(TITLE);
- 
+    
    
     $.ajax({
         url:RSS,
@@ -58,7 +78,7 @@ $("#mainPage").live("pageinit", function() {
             
 
 			
-            $.mobile.showPageLoadingMsg();
+            $.mobile.showPageLoadingMsg('show');
             console.log(">>>>>>>>>>>>>>>>>>>>>>>>Iniciar");          
 
             $.each(items, function(i, v) {
@@ -76,20 +96,22 @@ $("#mainPage").live("pageinit", function() {
             localStorage["entries"] = JSON.stringify(entries);
             renderEntries(entries);
 
-            $.mobile.hidePageLoadingMsg();
+            $.mobile.loading( 'hide');
         },
         error:function(jqXHR,status,error) {
+            $.mobile.loading( 'hide');
             //try to use cache
             if(localStorage["entries"]) {
-                $("#status").html("Using cached version...");
+                $("#status1").html("(Version cache)");
                 entries = JSON.parse(localStorage["entries"])
                 renderEntries(entries);				
             } else {
-                $("#status").html("Sorry, we are unable to get the RSS and there is no cache.");
+                $("#status1").html("Lo sentimos, no podemos obtener el rss o no hay cache.");
             }
         }
+        
     });
-	
+    
 });
 
 $("#mainPage").live("pagebeforeshow", function(event,data) {
