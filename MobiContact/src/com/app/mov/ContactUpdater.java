@@ -14,17 +14,18 @@ public class ContactUpdater extends DroidGap {
         super.onCreate(savedInstanceState);
         super.setIntegerProperty("splashscreen", R.drawable.bender);
         super.setBooleanProperty("keepRunning", false);
-        super.loadUrl("file:///android_asset/www/index.html",10000);
+        super.loadUrl("file:///android_asset/www/index.html",6000);
+        
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (appView.canGoBack()) {
-                appView.goBack();
-                return true;
-            }
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            if (appView.canGoBack()) {
+//                appView.goBack();
+//                return true;
+//            }
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 }
