@@ -88,7 +88,6 @@ function actualizarContactos() {
     
             
     var options = new ContactFindOptions();
-    var numerosModificados = 0;
                 
     options.filter="";
     options.multiple=true; 
@@ -117,42 +116,45 @@ function actualizarContactos() {
                 
                 nuevos_numeros = [];
                 var modificado = false;
-                if(contacts[i].phoneNumbers!=null)                    
+                if(contacts[i].phoneNumbers!=null){
                     posicion = 0;
-                //recorre todos los numeros de cada contacto
-                for (var j=0; j<contacts[i].phoneNumbers.length; j++) {
-                    var numeroAnterior = filtrarNumeros(contacts[i].phoneNumbers[j].value);
+                    for (var j=0; j<contacts[i].phoneNumbers.length; j++) {
+                        var numeroAnterior = filtrarNumeros(contacts[i].phoneNumbers[j].value);
                         
-                    var nuevoNumero = validarNumero(contacts[i].phoneNumbers[j].value);
-                    console.log("De "+numeroAnterior+" a "+nuevoNumero);
-                    if(numeroAnterior!=nuevoNumero){
-                        if(nuevoNumero.length>10){
-                            nuevoNumero = "+"+nuevoNumero;
-                        }  
-                        modificado = true;
+                        var nuevoNumero = validarNumero(contacts[i].phoneNumbers[j].value);
+                        console.log("De "+numeroAnterior+" a "+nuevoNumero);
+                        if(numeroAnterior!=nuevoNumero){
+                            if(nuevoNumero.length>10){
+                                nuevoNumero = "+"+nuevoNumero;
+                            }  
+                            modificado = true;
                             
-                        console.log("contacto "+i+" numero "+j+ " pos "+ posicion);
+                            console.log("contacto "+i+" numero "+j+ " pos "+ posicion);
                             
                          
-                        nuevos_numeros[posicion] = new ContactField(contacts[i].phoneNumbers[j].type, nuevoNumero, false);                                        
+                            nuevos_numeros[posicion] = new ContactField(contacts[i].phoneNumbers[j].type, nuevoNumero, false);                                        
                             
-                        //almacena una muestra de solo 10 contactos en html
-                        if(numerosModificados<10){
-                            lista += "<li class=\"ui-li ui-li-static ui-body-c ui-corner-bottom\">"+
-                            "<h3 class=\"ui-li-heading\">"+contacts[i].name.givenName+" "+contacts[i].name.familyName+"</h3>"+
-                            "<p class=\"ui-li-desc\"><strong>"+nuevoNumero+"</strong></p>"+
-                            "</li>";
-                        }
-                        posicion++;
-                            
-                    }else{
-                        if(modificado){
-                            nuevos_numeros[posicion] = new ContactField(contacts[i].phoneNumbers[j].type, numeroAnterior, false);                                        
+                            //almacena una muestra de solo 10 contactos en html
+                            if(posicion<10){
+                                lista += "<li class=\"ui-li ui-li-static ui-body-c ui-corner-bottom\">"+
+                                "<h3 class=\"ui-li-heading\">"+contacts[i].name.givenName+" "+contacts[i].name.familyName+"</h3>"+
+                                "<p class=\"ui-li-desc\"><strong>"+nuevoNumero+"</strong></p>"+
+                                "</li>";
+                            }
                             posicion++;
-                        }
+                            
+                        }else{
+                            if(modificado){
+                                nuevos_numeros[posicion] = new ContactField(contacts[i].phoneNumbers[j].type, numeroAnterior, false);                                        
+                                posicion++;
+                            }
                         
-                    }     
-                }
+                        }     
+                    }
+                }                    
+                
+                //recorre todos los numeros de cada contacto
+                
                  
                 //si el contacto fue modificado actualiza los numeros
                 if(modificado){
@@ -162,7 +164,7 @@ function actualizarContactos() {
                     console.log("---------id: "+contacts[i].id);
                     contacts[i].phoneNumbers = [];
                     contacts[i].save(onSaveSuccess,onSaveError);
-                    console.log(numerosModificados.toString());
+                    console.log(posicion.toString());
                     console.log(contacts[i].phoneNumbers);
                     contacts[i].phoneNumbers  = nuevos_numeros;
                     contacts[i].save(onSaveNumberSuccess,onSaveError);
